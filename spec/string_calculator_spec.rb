@@ -13,10 +13,16 @@ RSpec.describe "StringCalculator" do
     expect(calc.add("47")).to eq(47)
   end
 
-  # Two comma-separated numbers
+  # to support Two comma-separated numbers
   it "returns sum of two comma-separated numbers" do
     calc = StringCalculator.new
     expect(calc.add("9,0")).to eq(9)
+  end
+
+  # to suppport any amount of numbers
+  it "handles any amount of comma-separated numbers" do
+    calc = StringCalculator.new
+    expect(calc.add("1,2,3,4,5")).to eq(15)
   end
 
 end
