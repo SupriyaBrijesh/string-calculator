@@ -5,4 +5,11 @@ RSpec.describe "StringCalculator" do
     calc = StringCalculator.new
     expect(calc.add("")).to eq(0)
   end
+
+  it "returns the number itself when single number is given" do
+    calc = StringCalculator.new
+    expect(calc.add("1")).to eq(1)
+    expect(calc.add("47")).to eq(47)
+  end
+
 end
