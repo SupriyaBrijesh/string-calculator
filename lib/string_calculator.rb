@@ -13,6 +13,9 @@ class StringCalculator
 
     nums = numbers.split(delimiter).map(&:to_i) # supports custom delimiter syntax like //;\n1;2
 
+    negatives = nums.select { |n| n < 0 }
+    raise "negative numbers not allowed: #{negatives.join(',')}" if negatives.any?
+
     nums.sum
   end
 end
