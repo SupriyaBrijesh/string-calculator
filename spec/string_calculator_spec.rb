@@ -49,6 +49,13 @@ RSpec.describe "StringCalculator" do
       .to raise_error("negative numbers not allowed: -1,-5,-7")
   end
 
+  # Custom multi-character delimiters like //[*]\n**
+  it "supports multi-character delimiter using //[***]\\n syntax" do
+    calc = StringCalculator.new
+    expect(calc.add("//[***]\n1***2***3")).to eq(6)
+  end
+
+
 
 
 

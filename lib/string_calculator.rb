@@ -8,7 +8,12 @@ class StringCalculator
     delimiter = /,|\n/
     if numbers.start_with?("//")
       delimiter_spec, numbers = numbers.split("\n", 2)
-      delimiter = Regexp.new(Regexp.escape(delimiter_spec[2..]))
+      if delimiter_spec[2] == "[" && delimiter_spec.end_with?("]")
+        custom_delim = delimiter_spec[3..-2]
+        delimiter = Regexp.new(Regexp.escape(custom_delim))
+      else
+        delimiter = Regexp.new(Regexp.escape(delimiter_spec[2..]))
+      end
     end
 
     nums = numbers.split(delimiter).map(&:to_i) # supports custom delimiter syntax like //;\n1;2
