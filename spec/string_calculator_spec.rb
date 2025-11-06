@@ -25,4 +25,10 @@ RSpec.describe "StringCalculator" do
     expect(calc.add("1,2,3,4,5")).to eq(15)
   end
 
+  # handles newline b/w numbers
+  it "handles newlines between numbers" do
+    calc = StringCalculator.new
+    expect(calc.add("1\n2,3")).to eq(6)
+  end
+
 end
