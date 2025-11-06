@@ -6,10 +6,17 @@ RSpec.describe "StringCalculator" do
     expect(calc.add("")).to eq(0)
   end
 
+  # One number returns itself
   it "returns the number itself when single number is given" do
     calc = StringCalculator.new
     expect(calc.add("1")).to eq(1)
     expect(calc.add("47")).to eq(47)
+  end
+
+  # Two comma-separated numbers
+  it "returns sum of two comma-separated numbers" do
+    calc = StringCalculator.new
+    expect(calc.add("9,0")).to eq(9)
   end
 
 end
